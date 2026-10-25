@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.ProjekFarrell" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/teal</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/champagne_gold</item>
+        <item name="android:windowBackground">@color/ivory</item>
+        <item name="android:statusBarColor">@color/charcoal</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <!-- Font Inter dipakai di seluruh aplikasi -->
+        <item name="android:fontFamily">@font/inter</item>
+        <item name="fontFamily">@font/inter</item>
+    </style>
+</resources>

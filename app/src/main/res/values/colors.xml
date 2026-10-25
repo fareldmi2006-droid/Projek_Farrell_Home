@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Palet warna NUCEOS -->
+    <color name="charcoal">#FF101820</color>
+    <color name="teal">#FF087F75</color>
+    <color name="teal_light">#FFE3F1EF</color>
+    <color name="champagne_gold">#FFD6B779</color>
+    <color name="ivory">#FFF4F5F2</color>
+    <color name="sage">#FF68735A</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="text_secondary">#FF6B7280</color>
+    <color name="outline">#FFE5E7E2</color>
+    <color name="red_logout">#FFB4473B</color>
+</resources>
