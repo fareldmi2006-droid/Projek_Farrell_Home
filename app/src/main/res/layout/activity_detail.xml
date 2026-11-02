@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Halaman Detail projek, lengkap dengan gambar -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ivory"
+    android:fillViewport="true"
+    tools:context=".DetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp">
+
+        <!-- Gambar utama + tombol kembali -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_header">
+
+            <ImageView
+                android:id="@+id/ivLogoDetail"
+                android:layout_width="150dp"
+                android:layout_height="110dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="28dp"
+                android:contentDescription="Logo NUCEOS"
+                android:scaleType="fitCenter"
+                android:src="@drawable/img_logo_nuceos" />
+
+            <ImageButton
+                android:id="@+id/btnKembali"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="8dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Kembali"
+                android:src="@drawable/ic_arrow_back" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvJudulDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/inter_bold"
+            android:text="@string/judul_projek"
+            android:textColor="@color/charcoal"
+            android:textSize="26sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="@string/tagline"
+            android:textColor="@color/teal"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvDeskripsi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:fontFamily="@font/inter"
+            android:lineSpacingExtra="4dp"
+            android:text="@string/deskripsi_projek"
+            android:textColor="@color/charcoal"
+            android:textSize="15sp" />
+
+        <!-- Gambar tampilan aplikasi -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Tampilan Aplikasi"
+            android:textColor="@color/charcoal"
+            android:textSize="18sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            app:cardBackgroundColor="@color/charcoal"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp">
+
+            <ImageView
+                android:id="@+id/ivMockup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:contentDescription="Mockup layar aplikasi NUCEOS"
+                android:src="@drawable/img_detail_banner" />
+        </androidx.cardview.widget.CardView>
+
+        <!-- Daftar fitur -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Fitur Utama"
+            android:textColor="@color/charcoal"
+            android:textSize="18sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="18dp">
+
+                <ImageView
+                    android:layout_width="96dp"
+                    android:layout_height="199dp"
+                    android:contentDescription="Mockup halaman Beranda"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/img_mockup_beranda" />
+
+                <TextView
+                    android:id="@+id/tvFitur"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/inter"
+                    android:lineSpacingExtra="6dp"
+                    android:textColor="@color/charcoal"
+                    android:textSize="14sp"
+                    tools:text="• Beranda" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/inter"
+            android:gravity="center"
+            android:text="Dibuat oleh Farrell Fathurrahman  •  NIM 2455301067"
+            android:textColor="@color/sage"
+            android:textSize="12sp" />
+    </LinearLayout>
+</ScrollView>
