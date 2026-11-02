@@ -1,5 +1,6 @@
 package com.example.projek_farrell
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -7,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.projek_farrell.databinding.ActivityPengaduanBinding
+import com.example.projek_farrell.laporan.LaporanData
+import com.example.projek_farrell.laporan.LaporanModel
+import com.example.projek_farrell.laporan.RiwayatLaporanActivity
 import com.google.android.material.chip.Chip
 
 class PengaduanActivity : AppCompatActivity() {
@@ -60,12 +64,17 @@ class PengaduanActivity : AppCompatActivity() {
             } else if (judul.isEmpty()) {
                 binding.tilJudul.error = "Judul laporan wajib diisi"
             } else {
-                Toast.makeText(
-                    this,
-                    "Laporan terkirim!\n$judul\nKategori: $kategoriDipilih\nPelapor: $nama",
-                    Toast.LENGTH_LONG
-                ).show()
-                finish()   // kembali ke Beranda
+                // Simpan laporan baru di urutan paling atas daftar
+                LaporanData.daftarLaporan.add(
+                    0,
+                    LaporanModel(judul, kategoriDipilih, nama, "Hari ini", "Diproses")
+                )
+
+                Toast.makeText(this, "Laporan terkirim!", Toast.LENGTH_SHORT).show()
+
+                // Buka Riwayat Laporan supaya laporan barunya langsung terlihat
+                startActivity(Intent(this, RiwayatLaporanActivity::class.java))
+                finish()
             }
         }
     }

@@ -43,5 +43,9 @@
         <activity
             android:name=".tutorial.TutorialActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".laporan.RiwayatLaporanActivity"
+            android:exported="false" />
     </application>
 </manifest>

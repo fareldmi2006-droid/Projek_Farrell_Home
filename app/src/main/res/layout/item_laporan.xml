@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tampilan SATU baris laporan (seperti item_message di Pertemuan 7) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="14dp">
+
+    <ImageView
+        android:id="@+id/imgKategori"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="@drawable/bg_icon"
+        android:contentDescription="Ikon kategori"
+        android:padding="10dp"
+        android:src="@drawable/ic_pengaduan"
+        app:tint="@color/teal" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvJudul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_semibold"
+            android:text="Judul laporan"
+            android:textColor="@color/charcoal"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvKeterangan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Kategori • Tanggal"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_chip_gold"
+        android:fontFamily="@font/inter_semibold"
+        android:paddingStart="10dp"
+        android:paddingTop="3dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="3dp"
+        android:text="Diproses"
+        android:textColor="#FFB8975A"
+        android:textSize="11sp" />
+
+</LinearLayout>
