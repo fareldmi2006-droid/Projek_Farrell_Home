@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Warna ikon tab: teal saat aktif, abu-abu saat tidak aktif -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="#FF087F75" android:state_selected="true" />
+    <item android:color="#FF6B7280" />
+</selector>

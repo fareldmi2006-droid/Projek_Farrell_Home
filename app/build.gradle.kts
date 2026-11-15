@@ -51,6 +51,10 @@ dependencies {
     implementation("androidx.gridlayout:gridlayout:1.0.0")
     implementation("androidx.viewpager2:viewpager2:1.1.0")
     implementation("com.tbuonomo:dotsindicator:4.3")
+
+    // Pertemuan 10: RecyclerView + Glide (gambar dari URL)
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }
 
 // Kunci versi library agar cocok dengan compileSdk 35 & AGP 8.7.3

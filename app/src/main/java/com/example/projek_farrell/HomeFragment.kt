@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.projek_farrell.databinding.FragmentHomeBinding
+import com.example.projek_farrell.info.InfoKotaActivity
 
 class HomeFragment : Fragment() {
 
@@ -54,9 +55,9 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        // 3. Kartu berita
+        // 3. Kartu berita membuka halaman Info Kota (Pertemuan 10)
         binding.cardBerita.setOnClickListener {
-            Toast.makeText(requireContext(), "Peresmian jalan Kota Pekanbaru", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(requireContext(), InfoKotaActivity::class.java))
         }
 
         return binding.root

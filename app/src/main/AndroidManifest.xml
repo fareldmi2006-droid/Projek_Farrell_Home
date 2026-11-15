@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Pertemuan 10: gambar dari internet (Glide) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -46,6 +49,11 @@
 
         <activity
             android:name=".laporan.RiwayatLaporanActivity"
+            android:exported="false" />
+
+        <!-- Pertemuan 10 -->
+        <activity
+            android:name=".info.InfoKotaActivity"
             android:exported="false" />
     </application>
 </manifest>
