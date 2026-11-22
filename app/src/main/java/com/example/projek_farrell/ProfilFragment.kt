@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.projek_farrell.databinding.FragmentProfilBinding
-import com.example.projek_farrell.laporan.LaporanData
+import androidx.lifecycle.lifecycleScope
+import com.example.projek_farrell.data.AppDatabase
 import com.example.projek_farrell.laporan.RiwayatLaporanActivity
+import kotlinx.coroutines.launch
 
 class ProfilFragment : Fragment() {
 
@@ -27,8 +29,7 @@ class ProfilFragment : Fragment() {
         binding.tvUsername.text = username
         binding.tvAvatar.text = username.take(1).uppercase()
 
-        // 2. Jumlah laporan diambil dari daftar laporan, klik untuk membuka Riwayat
-        binding.tvJumlahLaporan.text = String.format("%02d", LaporanData.daftarLaporan.size)
+        // 2. Klik angka Laporan untuk membuka Riwayat (jumlahnya diisi di onResume)
         binding.statLaporan.setOnClickListener {
             startActivity(Intent(requireContext(), RiwayatLaporanActivity::class.java))
         }
@@ -51,5 +52,14 @@ class ProfilFragment : Fragment() {
         }
 
         return binding.root
+    }
+
+    // Jumlah laporan dibaca dari Room setiap halaman Profil tampil
+    override fun onResume() {
+        super.onResume()
+        viewLifecycleOwner.lifecycleScope.launch {
+            val jumlah = AppDatabase.getInstance(requireContext()).laporanDao().count()
+            binding.tvJumlahLaporan.text = String.format("%02d", jumlah)
+        }
     }
 }

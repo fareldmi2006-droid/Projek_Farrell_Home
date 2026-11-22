@@ -8,9 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.projek_farrell.databinding.ActivityPengaduanBinding
-import com.example.projek_farrell.laporan.LaporanData
-import com.example.projek_farrell.laporan.LaporanModel
+import androidx.lifecycle.lifecycleScope
+import com.example.projek_farrell.data.AppDatabase
+import com.example.projek_farrell.data.entity.LaporanEntity
 import com.example.projek_farrell.laporan.RiwayatLaporanActivity
+import kotlinx.coroutines.launch
 import com.google.android.material.chip.Chip
 
 class PengaduanActivity : AppCompatActivity() {
@@ -64,17 +66,30 @@ class PengaduanActivity : AppCompatActivity() {
             } else if (judul.isEmpty()) {
                 binding.tilJudul.error = "Judul laporan wajib diisi"
             } else {
-                // Simpan laporan baru di urutan paling atas daftar
-                LaporanData.daftarLaporan.add(
-                    0,
-                    LaporanModel(judul, kategoriDipilih, nama, "Hari ini", "Diproses")
-                )
+                val deskripsi = binding.etDeskripsi.text.toString().trim()
 
-                Toast.makeText(this, "Laporan terkirim!", Toast.LENGTH_SHORT).show()
+                // Simpan laporan ke Room Database (Pertemuan 12) lewat coroutine
+                binding.btnKirim.isEnabled = false
+                lifecycleScope.launch {
+                    try {
+                        AppDatabase.getInstance(this@PengaduanActivity).laporanDao().insert(
+                            LaporanEntity(
+                                judul = judul,
+                                kategori = kategoriDipilih,
+                                pelapor = nama,
+                                deskripsi = deskripsi
+                            )
+                        )
+                        Toast.makeText(this@PengaduanActivity, "Laporan terkirim!", Toast.LENGTH_SHORT).show()
 
-                // Buka Riwayat Laporan supaya laporan barunya langsung terlihat
-                startActivity(Intent(this, RiwayatLaporanActivity::class.java))
-                finish()
+                        // Buka Riwayat Laporan supaya laporan barunya langsung terlihat
+                        startActivity(Intent(this@PengaduanActivity, RiwayatLaporanActivity::class.java))
+                        finish()
+                    } catch (e: Exception) {
+                        binding.btnKirim.isEnabled = true
+                        Toast.makeText(this@PengaduanActivity, "Gagal menyimpan laporan", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
     }

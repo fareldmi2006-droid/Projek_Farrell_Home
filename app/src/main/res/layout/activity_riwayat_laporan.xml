@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Halaman Riwayat Laporan: Toolbar + filter Chip + ListView -->
+<!-- Halaman Riwayat Laporan: Toolbar + filter Chip + RecyclerView (data dari Room) -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -55,14 +55,12 @@
             android:text="Selesai" />
     </com.google.android.material.chip.ChipGroup>
 
-    <!-- Daftar laporan (Pertemuan 7: ListView + Custom Adapter) -->
-    <ListView
-        android:id="@+id/listLaporan"
+    <!-- Daftar laporan (Pertemuan 12: RecyclerView, data dari Room) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvLaporan"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
-        android:divider="@color/outline"
-        android:dividerHeight="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
