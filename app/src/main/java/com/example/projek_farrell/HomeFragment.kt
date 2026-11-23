@@ -6,10 +6,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.example.projek_farrell.databinding.FragmentHomeBinding
 import com.example.projek_farrell.info.InfoKotaActivity
+import com.example.projek_farrell.laporan.RiwayatLaporanActivity
 
 class HomeFragment : Fragment() {
 
@@ -32,20 +32,23 @@ class HomeFragment : Fragment() {
         binding.menuPengaduan.setOnClickListener {
             startActivity(Intent(requireContext(), PengaduanActivity::class.java))
         }
+        // Layanan & Peta pindah ke menu bawah yang sesuai
         binding.menuLayanan.setOnClickListener {
-            Toast.makeText(requireContext(), "Menu Layanan", Toast.LENGTH_SHORT).show()
+            (activity as? MainActivity)?.bukaMenu(R.id.nav_layanan)
         }
         binding.menuPeta.setOnClickListener {
-            Toast.makeText(requireContext(), "Menu Peta Kota", Toast.LENGTH_SHORT).show()
+            (activity as? MainActivity)?.bukaMenu(R.id.nav_peta)
         }
+        // Transportasi & Kesehatan menampilkan detail layanan
         binding.menuTransportasi.setOnClickListener {
-            Toast.makeText(requireContext(), "Menu Transportasi", Toast.LENGTH_SHORT).show()
+            LayananHelper.tampilkan(requireContext(), "transportasi")
         }
         binding.menuKesehatan.setOnClickListener {
-            Toast.makeText(requireContext(), "Menu Kesehatan", Toast.LENGTH_SHORT).show()
+            LayananHelper.tampilkan(requireContext(), "kesehatan")
         }
+        // Darurat: konfirmasi lalu buka aplikasi telepon ke 112
         binding.menuDarurat.setOnClickListener {
-            Toast.makeText(requireContext(), "Menu Darurat: hubungi 112", Toast.LENGTH_SHORT).show()
+            LayananHelper.darurat(requireContext())
         }
 
         // 2. Intent dari MainActivity (HomeFragment) ke DetailActivity
@@ -55,9 +58,19 @@ class HomeFragment : Fragment() {
             startActivity(intent)
         }
 
-        // 3. Kartu berita membuka halaman Info Kota (Pertemuan 10)
+        // 3. Kartu berita membuka halaman Berita & Forum (Pertemuan 10)
         binding.cardBerita.setOnClickListener {
             startActivity(Intent(requireContext(), InfoKotaActivity::class.java))
+        }
+
+        // 4. "Lihat semua" membuka halaman Berita & Forum
+        binding.tvLihatSemua.setOnClickListener {
+            startActivity(Intent(requireContext(), InfoKotaActivity::class.java))
+        }
+
+        // 5. Kartu Aktivitas Terbaru membuka Riwayat Laporan
+        binding.cardAktivitas.setOnClickListener {
+            startActivity(Intent(requireContext(), RiwayatLaporanActivity::class.java))
         }
 
         return binding.root

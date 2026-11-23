@@ -11,6 +11,8 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.projek_farrell.databinding.ActivityMainBinding
+import com.example.projek_farrell.info.InfoKotaActivity
+import com.example.projek_farrell.peta.PetaFragment
 import com.example.projek_farrell.tutorial.TutorialActivity
 
 class MainActivity : AppCompatActivity() {
@@ -41,6 +43,15 @@ class MainActivity : AppCompatActivity() {
                     binding.tvJudulHalaman.text = "Beranda"
                     replaceFragment(HomeFragment())
                 }
+                R.id.nav_peta -> {
+                    binding.tvJudulHalaman.text = "Peta Kota"
+                    replaceFragment(PetaFragment())
+                }
+                R.id.nav_lapor -> {
+                    // Menu Lapor membuka form Pengaduan, menu yang aktif tidak berpindah
+                    startActivity(Intent(this, PengaduanActivity::class.java))
+                    return@setOnItemSelectedListener false
+                }
                 R.id.nav_layanan -> {
                     binding.tvJudulHalaman.text = "Layanan Publik"
                     replaceFragment(LayananFragment())
@@ -51,6 +62,13 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             true
+        }
+
+        // 3a. Ikon lonceng membuka tab Pengumuman di Berita & Forum
+        binding.btnNotif.setOnClickListener {
+            val intent = Intent(this, InfoKotaActivity::class.java)
+            intent.putExtra(InfoKotaActivity.EXTRA_TAB, 2)
+            startActivity(intent)
         }
 
         // 3. Ikon Info membuka Tutorial NUCEOS (Pertemuan 9)
@@ -81,6 +99,11 @@ class MainActivity : AppCompatActivity() {
                 }
                 .show()
         }
+    }
+
+    // Dipanggil dari HomeFragment: pindah ke menu bawah tertentu (contoh: Peta, Layanan)
+    fun bukaMenu(menuId: Int) {
+        binding.bottomNav.selectedItemId = menuId
     }
 
     // Fungsi untuk mengganti isi FrameLayout dengan Fragment

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ilustrasi peta sederhana (poster 03): jalan, sungai, taman, dan penanda lokasi -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="180dp"
+    android:viewportWidth="360"
+    android:viewportHeight="180">
+    <!-- latar -->
+    <path android:fillColor="#FFE8EFE6" android:pathData="M0,0h360v180h-360z" />
+    <!-- taman -->
+    <path android:fillColor="#FFCFE3CC" android:pathData="M150,50h70v45h-70z" />
+    <!-- sungai -->
+    <path android:fillColor="#FFBFD9EA" android:pathData="M0,128h360v16h-360z" />
+    <!-- jalan -->
+    <path android:fillColor="#FFFFFFFF" android:pathData="M0,30h360v8h-360z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M0,104h360v8h-360z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M60,0h8v180h-8z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M250,0h8v180h-8z" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M300,0l10,0l-90,180l-10,0z" />
+    <!-- penanda lokasi -->
+    <path android:fillColor="#FF087F75" android:pathData="M185,72m-9,0a9,9 0,1 1,18 0a9,9 0,1 1,-18 0" />
+    <path android:fillColor="#FFFFFFFF" android:pathData="M185,72m-4,0a4,4 0,1 1,8 0a4,4 0,1 1,-8 0" />
+    <path android:fillColor="#FF087F75" android:pathData="M96,64m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+    <path android:fillColor="#FF087F75" android:pathData="M290,58m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+    <path android:fillColor="#FFD6B779" android:pathData="M120,160m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+</vector>

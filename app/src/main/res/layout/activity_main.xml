@@ -31,6 +31,16 @@
             android:textColor="@color/charcoal"
             android:textSize="22sp" />
 
+        <!-- Poster 02: ikon lonceng membuka Pengumuman -->
+        <ImageButton
+            android:id="@+id/btnNotif"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Notifikasi"
+            android:src="@drawable/ic_bell"
+            app:tint="@color/teal" />
+
         <!-- Pertemuan 9 (Tahap 5): ikon Info membuka Tutorial -->
         <ImageButton
             android:id="@+id/btnInfo"

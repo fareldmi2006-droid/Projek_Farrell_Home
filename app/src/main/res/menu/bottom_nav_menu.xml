@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Bottom Navigation 5 menu sesuai poster: Home, Peta, Lapor, Layanan, Profil -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
         android:title="Home" />
+    <item
+        android:id="@+id/nav_peta"
+        android:icon="@drawable/ic_place"
+        android:title="Peta" />
+    <item
+        android:id="@+id/nav_lapor"
+        android:icon="@drawable/ic_pengaduan"
+        android:title="Lapor" />
     <item
         android:id="@+id/nav_layanan"
         android:icon="@drawable/ic_layanan"

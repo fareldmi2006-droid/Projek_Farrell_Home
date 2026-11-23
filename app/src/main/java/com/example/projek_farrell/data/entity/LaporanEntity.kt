@@ -11,6 +11,7 @@ data class LaporanEntity(
     val judul: String,
     val kategori: String,
     val pelapor: String,
+    val lokasi: String = "",
     val deskripsi: String,
     val status: String = "Diproses",
     val createdAt: Long = System.currentTimeMillis()

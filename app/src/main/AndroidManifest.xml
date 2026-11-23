@@ -51,6 +51,11 @@
             android:name=".laporan.RiwayatLaporanActivity"
             android:exported="false" />
 
+        <!-- Poster 06: Status Pengaduan -->
+        <activity
+            android:name=".laporan.DetailLaporanActivity"
+            android:exported="false" />
+
         <!-- Pertemuan 10 -->
         <activity
             android:name=".info.InfoKotaActivity"

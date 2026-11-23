@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.projek_farrell.databinding.FragmentInfoListBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 // Tab 1: Berita Kota, ditampilkan sebagai daftar (1 kolom)
 class BeritaFragment : Fragment() {
@@ -38,7 +38,12 @@ class BeritaFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val beritaAdapter = InfoAdapter(beritaList) { item ->
-            Toast.makeText(requireContext(), "Membuka berita: ${item.judul}", Toast.LENGTH_SHORT).show()
+            // Klik berita -> tampilkan detail singkat dalam dialog
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle(item.judul)
+                .setMessage("${item.keterangan}\n\nBerita lengkap akan tersedia setelah aplikasi terhubung ke server Pemerintah Kota Pekanbaru.")
+                .setPositiveButton("Tutup", null)
+                .show()
         }
 
         binding.rvInfo.apply {

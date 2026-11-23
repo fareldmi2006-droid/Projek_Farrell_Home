@@ -14,6 +14,11 @@ class InfoKotaActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityInfoKotaBinding
 
+    companion object {
+        // Tab yang dibuka pertama kali: 0 = Berita, 1 = Forum Warga, 2 = Pengumuman
+        const val EXTRA_TAB = "EXTRA_TAB"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,7 +32,7 @@ class InfoKotaActivity : AppCompatActivity() {
 
         // Toolbar + tombol back
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.title = "Info Kota"
+        supportActionBar?.title = "Berita & Forum"
         binding.toolbar.setNavigationIcon(R.drawable.ic_arrow_back)
         binding.toolbar.navigationIcon?.setTint(ContextCompat.getColor(this, R.color.white))
         binding.toolbar.setNavigationOnClickListener { finish() }
@@ -40,17 +45,24 @@ class InfoKotaActivity : AppCompatActivity() {
             when (position) {
                 0 -> {
                     tab.text = "Berita"
-                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_bell)
-                    // Badge angka: jumlah berita baru
-                    val badge = tab.getOrCreateBadge()
-                    badge.isVisible = true
-                    badge.number = 3
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_info)
                 }
                 1 -> {
-                    tab.text = "Fasilitas"
-                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_place)
+                    tab.text = "Forum Warga"
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_person)
+                }
+                2 -> {
+                    tab.text = "Pengumuman"
+                    tab.icon = ContextCompat.getDrawable(this, R.drawable.ic_bell)
+                    // Badge angka: jumlah pengumuman baru
+                    val badge = tab.getOrCreateBadge()
+                    badge.isVisible = true
+                    badge.number = PengumumanFragment.pengumumanList.size
                 }
             }
         }.attach()
+
+        // 3. Buka tab tertentu kalau diminta (contoh: ikon lonceng -> Pengumuman)
+        binding.viewPager.setCurrentItem(intent.getIntExtra(EXTRA_TAB, 0), false)
     }
 }

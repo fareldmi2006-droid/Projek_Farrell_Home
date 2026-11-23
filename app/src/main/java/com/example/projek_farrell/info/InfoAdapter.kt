@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.projek_farrell.databinding.ItemInfoBinding
 
-// Adapter RecyclerView: dipakai bersama oleh tab Berita dan tab Fasilitas
+// Adapter RecyclerView: dipakai bersama oleh tab Berita dan tab Pengumuman
 class InfoAdapter(
     private val infoList: List<InfoModel>,
     private val onItemClick: (InfoModel) -> Unit

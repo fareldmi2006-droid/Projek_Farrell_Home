@@ -67,6 +67,7 @@ class PengaduanActivity : AppCompatActivity() {
                 binding.tilJudul.error = "Judul laporan wajib diisi"
             } else {
                 val deskripsi = binding.etDeskripsi.text.toString().trim()
+                val lokasi = binding.etLokasi.text.toString().trim()
 
                 // Simpan laporan ke Room Database (Pertemuan 12) lewat coroutine
                 binding.btnKirim.isEnabled = false
@@ -77,6 +78,7 @@ class PengaduanActivity : AppCompatActivity() {
                                 judul = judul,
                                 kategori = kategoriDipilih,
                                 pelapor = nama,
+                                lokasi = lokasi,
                                 deskripsi = deskripsi
                             )
                         )

@@ -15,7 +15,8 @@ import java.util.Locale
 // Adapter RecyclerView: mengubah setiap LaporanEntity menjadi satu baris item_laporan.xml
 class LaporanAdapter(
     private val laporanList: List<LaporanEntity>,
-    private val onDelete: (LaporanEntity) -> Unit
+    private val onDelete: (LaporanEntity) -> Unit,
+    private val onItemClick: (LaporanEntity) -> Unit
 ) : RecyclerView.Adapter<LaporanAdapter.LaporanViewHolder>() {
 
     // Format tanggal dari createdAt (milidetik) menjadi "16 Nov 2026"
@@ -60,7 +61,10 @@ class LaporanAdapter(
                 tvStatus.setTextColor(Color.parseColor("#FFB8975A"))
             }
 
-            // 4. Tombol hapus -> dialog konfirmasi -> callback ke Activity
+            // 4. Klik baris -> buka halaman Status Pengaduan
+            root.setOnClickListener { onItemClick(laporan) }
+
+            // 5. Tombol hapus -> dialog konfirmasi -> callback ke Activity
             btnHapus.setOnClickListener {
                 MaterialAlertDialogBuilder(holder.itemView.context)
                     .setTitle("Hapus Laporan")

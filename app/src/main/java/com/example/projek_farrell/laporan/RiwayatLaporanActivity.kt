@@ -1,5 +1,6 @@
 package com.example.projek_farrell.laporan
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -48,7 +49,16 @@ class RiwayatLaporanActivity : AppCompatActivity() {
 
         // 2. Siapkan database dan RecyclerView
         db = AppDatabase.getInstance(this)
-        adapter = LaporanAdapter(tampil) { laporan -> hapusLaporan(laporan) }
+        adapter = LaporanAdapter(
+            tampil,
+            onDelete = { laporan -> hapusLaporan(laporan) },
+            onItemClick = { laporan ->
+                // Kirim id laporan ke halaman Status Pengaduan
+                val intent = Intent(this, DetailLaporanActivity::class.java)
+                intent.putExtra(DetailLaporanActivity.EXTRA_ID, laporan.id)
+                startActivity(intent)
+            }
+        )
         binding.rvLaporan.layoutManager = LinearLayoutManager(this)
         binding.rvLaporan.adapter = adapter
         binding.rvLaporan.addItemDecoration(

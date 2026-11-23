@@ -144,12 +144,26 @@
                     android:text="Lampu Jalan" />
             </com.google.android.material.chip.ChipGroup>
 
+            <!-- Poster 05: lokasi kejadian -->
+            <EditText
+                android:id="@+id/etLokasi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_rounded_container"
+                android:drawableStart="@drawable/ic_place"
+                android:drawablePadding="8dp"
+                android:hint="Lokasi kejadian (contoh: Jl. Melati No. 5)"
+                android:importantForAutofill="no"
+                android:inputType="textPostalAddress|textCapWords"
+                android:textSize="14sp" />
+
             <!-- Tahap 3.1: EditText dengan background membulat -->
             <EditText
                 android:id="@+id/etPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="12dp"
                 android:background="@drawable/bg_rounded_container"
                 android:hint="Nomor HP (untuk dihubungi petugas)"
                 android:importantForAutofill="no"
@@ -163,7 +177,7 @@
                 android:layout_marginTop="12dp"
                 android:background="@drawable/bg_rounded_container"
                 android:gravity="top|start"
-                android:hint="Ceritakan masalahnya dan lokasinya"
+                android:hint="Jelaskan masalah yang kamu temukan"
                 android:importantForAutofill="no"
                 android:inputType="textMultiLine|textCapSentences"
                 android:minLines="4"

@@ -9,7 +9,7 @@ import com.example.projek_farrell.data.entity.LaporanEntity
 
 @Database(
     entities = [LaporanEntity::class],
-    version = 1,
+    version = 2,   // v2: tambah kolom lokasi
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -26,7 +26,10 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "nuceos_database"
-                ).build().also { INSTANCE = it }
+                )
+                    // Struktur tabel berubah (v1 -> v2): data lama dihapus lalu tabel dibuat ulang
+                    .fallbackToDestructiveMigration()
+                    .build().also { INSTANCE = it }
             }
     }
 }
